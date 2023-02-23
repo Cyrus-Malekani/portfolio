@@ -6,28 +6,21 @@
 </head>
 <body>
   <br>
-  <br>
-  <center><p><span style="font-size: 66px">Cyrus Malekani</span></p>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/pQocwCkS6qg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/zTvzzT5Nrs4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/MVhBYEGX9LU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/2mUiQIYpp3g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/ZDmJU97DkKA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/Y1LIXuB5pIg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/xcY1z_LRX1A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/ZgU9r-8_P98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/i6BrcvZRbwA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <br><br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/Gtg5GrlIKek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <center><p style="font-size: 66px">Cyrus Malekani</p>
+    <br>
+    <table>
+      {% set videos_per_row = 2 %}
+      {% for i in range(0, videos|length, videos_per_row) %}
+        <tr>
+          {% for video in videos[i:i+videos_per_row] %}
+            <td>
+              <video width="333" height="333" controls> 
+              <source src="{{ url_for('static', filename=video) }}" type="video/mp4"></video>
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
   </center>
 </body>
 </html>
