@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve cyrus.nu instance
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/cyrus/cyrus
+Environment="PATH=/home/cyrus/cyrus/venv/bin"
+ExecStart=/home/cyrus/cyrus/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
