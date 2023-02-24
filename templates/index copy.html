@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-  <link rel="icon" type="image/png" href="/static/img/favicon.png">
+  
 	<title>Cyrus Malekani</title>
 </head>
 <body>
@@ -15,7 +16,16 @@
         <tr>
           {% for video in videos[i:i+videos_per_row] %}
             <td>
-              <video width="333" height="333" preload="metadata" controls> 
+              <video
+              id="my-video"
+              class="video-js"
+              controls
+              preload="none"
+              width="333"
+              height="333"
+              poster="MY_VIDEO_POSTER.jpg"
+              data-setup="{}"
+              > 
               <source src="{{ url_for('static', filename=video) }}" type="video/mp4"></video>
             </td>
           {% endfor %}
